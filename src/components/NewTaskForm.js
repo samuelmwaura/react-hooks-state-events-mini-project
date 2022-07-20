@@ -1,8 +1,8 @@
 import React from "react";
 
-function NewTaskForm({CATEGORIES,newTask,onInputChange,handleSubmit}) {
+function NewTaskForm({CATEGORIES,newTask,onInputChange,onTaskFormSubmit}) {
   return (
-    <form className="new-task-form" onSubmit={handleSubmit}>
+    <form className="new-task-form" onSubmit={onTaskFormSubmit}>
       <label>
         Details
         <input type="text" name="text" value={newTask.text} onChange={event=>onInputChange(event)}/>
@@ -11,7 +11,7 @@ function NewTaskForm({CATEGORIES,newTask,onInputChange,handleSubmit}) {
         Category
         <select name="category" onChange={event=>onInputChange(event)}>
           {CATEGORIES.map(category=>{
-           return category === 'All'? null : <option key={category}>{category}</option>;
+           return category === 'All'? null : <option key={category} value={category}>{category}</option>;
           })}
         </select>
       </label>
