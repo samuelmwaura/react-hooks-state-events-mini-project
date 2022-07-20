@@ -18,7 +18,7 @@ setNewTask(()=>{
 })
 }
 
-function handleSubmit(event){
+function onTaskFormSubmit(event){
 event.preventDefault();
 setNewTaskList([...newTaskList,newTask]);
 setNewTask({...newTask,text:''})
@@ -28,7 +28,7 @@ setNewTask({...newTask,text:''})
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter setSelectedCategory={setSelectedCategory} CATEGORIES={CATEGORIES}/>
-      <NewTaskForm CATEGORIES={CATEGORIES} newTask={newTask} onInputChange={onInputChange} handleSubmit={handleSubmit}/>
+      <NewTaskForm CATEGORIES={CATEGORIES} newTask={newTask} onInputChange={onInputChange} onTaskFormSubmit={onTaskFormSubmit}/>
       <TaskList selectedCategory={selectedCategory} TASKS={newTaskList}/>
     </div>
   );
